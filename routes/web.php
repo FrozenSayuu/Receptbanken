@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RecipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/recipes', [RecipeController::class, 'recipes'])->name('recipes');
+
+Route::middleware('auth')->group(function ()
+{
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/recipes/create', [RecipeController::class, 'create'])->name('create');
+});

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Auth;
 
 class RecipeController extends Controller
 {
@@ -14,7 +15,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        $recipes = Recipe::all();
+        return view('recipes/index', ['recipes' => $recipes]);
     }
 
     /**
@@ -24,7 +26,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        return view('recipes/create', ['user' => Auth::user()]);
     }
 
     /**
@@ -33,9 +35,20 @@ class RecipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Recipe $recipe,Request $request)
     {
-        //
+        $recipe = new Recipe;
+
+        $recipe->title = request('title');
+        $recipe->summary = request('summary');
+        $recipe->description = request('description');
+        $recipe->cooking_time = request('cooking_time');
+        $recipe->ingredients = request('ingredients');
+        $recipe->user_id = Auth::user()->id;
+
+        $recipe->save();
+
+        return redirect('/recipes');
     }
 
     /**

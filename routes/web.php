@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/recipes', [RecipeController::class, 'recipes'])->name('recipes');
+Route::resource('/recipes', RecipeController::class);
 
 Route::middleware('auth')->group(function ()
 {

@@ -13,14 +13,14 @@ class CreateCategoryRecipePivotTable extends Migration
     public function up()
     {
         Schema::create('category_recipe', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id')->index();
-            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
-            $table->unsignedBigInteger('recipe_id')->index();
-            $table->foreign('recipe_id')->references('id')->on('recipe')->onDelete('cascade');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('recipe_id');
+
             $table->primary(['category_id', 'recipe_id']);
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('recipe_id')->references('id')->on('recipes');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -28,6 +28,6 @@ class CreateCategoryRecipePivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_recipe');
+        Schema::dropIfExists('categories_recipes');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecipeController;
@@ -21,8 +22,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes');
-Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+Route::resource('/recipes', RecipeController::class);
+Route::resource('/categories', CategoryController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');

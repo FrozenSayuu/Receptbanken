@@ -4,7 +4,6 @@
 <div class="d-flex justify-content-between align-items-center my-3">
     <h2>Your created recipes!</h2>
     <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
-    <a href="category/create" class="btn btn-primary">Create a new category</a>
   </div>
 
 @foreach ($recipes as $recipe)
@@ -13,7 +12,7 @@
             <h3>{{$recipe->title}}</h3>
             <p>{{$recipe->summary}}</p>
             <p class="cooking_time">{{$recipe->cooking_time}}</p>
-            <!-- <span>{/*{$recipe->category}}</span> -->
+            <span>{{$recipe->categories}}</span>
         </article>
         <a href="/recipes/{{ $recipe->id }}/show" class="btn btn-primary btn-sm">View</a>
         <a href="/recipies/{{$recipe->id}}/edit" class="btn btn-primary btn-sm">Edit</a>

@@ -4,6 +4,7 @@
 <div class="d-flex justify-content-between align-items-center my-3">
     <h2>Your created recipes!</h2>
     <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
+    <a href="category/create" class="btn btn-primary">Create a new category</a>
   </div>
 
 @foreach ($recipes as $recipe)

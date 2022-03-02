@@ -27,8 +27,12 @@
                     <label for="ingredients" class="form-label">Ingredients</label>
 					<input type="textarea" class="form-control" id="ingredients" name="ingredients" required>
                     
-                    <label for="category" class="form-label">Category</label>
-					<input type="text" class="form-control" id="category" name="category" required>
+                    <h3>Tag your post!</h3>
+					<select class="form-select" name="tags[]" multiple="multiple">
+						@foreach($tags as $tag)
+							<option value="{{ $tag->id }}">{{ $tag->title }}</option>
+						@endforeach
+					</select>
 				</div>
 
 				<button type="submit" class="btn btn-success">Create</button>

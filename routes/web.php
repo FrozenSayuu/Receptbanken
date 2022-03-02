@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('/recipes', RecipeController::class);
+Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes');
+Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 
-Route::middleware('auth')->group(function ()
-{
+Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/recipes/create', [RecipeController::class, 'create'])->name('create');
 });

@@ -17,7 +17,7 @@
             @endforeach
         </article>
         <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">View</a>
-        <a href="/recipies/{{$recipe->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
+        <a href="recipes/{{$recipe->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
         <form class="d-inline-block" method="POST" action="/recipes/{{ $recipe->id }}/{{ route('recipes.destroy', ['recipe' => $recipe]) }}">
             @csrf
             @method('DELETE')

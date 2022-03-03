@@ -80,7 +80,9 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        return view('recipes/edit', [
+            'recipe' => $recipe
+        ]);
     }
 
     /**
@@ -92,7 +94,21 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        //
+
+        $validInput = $request->validate([
+            'title' => 'required',
+            'summary' => 'required',
+            'description' => 'required',
+            'cooking_time' => 'required',
+            'ingredients' => 'required',
+        ]);
+
+        $recipe->update($validInput);
+
+        $recipe->categories()->sync($request->categories);
+
+        return redirect('/recipes')
+            ->with('success', 'Receptet har uppdaterats');
     }
 
     /**

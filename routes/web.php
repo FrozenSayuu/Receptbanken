@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\FrontpageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +17,13 @@ use App\Http\Controllers\RecipeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('frontpage');
+// });
 
 Auth::routes();
 
+Route::resource('/', FrontpageController::class);
 Route::resource('/recipes', RecipeController::class);
 // Route::resource('/recipes/', RecipeController::class);
 Route::resource('/categories', CategoryController::class);

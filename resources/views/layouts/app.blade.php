@@ -78,6 +78,24 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                <div class="container">
+                    <p>Drottninggatan, Malmö</p>
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                        @endguest
+                    </ul>
+                </div>
+            </nav>
+        </footer>
     </div>
 </body>
 </html>

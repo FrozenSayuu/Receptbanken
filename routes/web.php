@@ -23,9 +23,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('/recipes', RecipeController::class);
+// Route::resource('/recipes/', RecipeController::class);
 Route::resource('/categories', CategoryController::class);
 
-Route::get('/recipes/{recipe}', [RecipeController::class], 'show')->name('recipes.show');
+Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');

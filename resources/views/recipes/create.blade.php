@@ -2,7 +2,10 @@
 
 @section('content')
 
-<h2>Create a recipe!</h2>
+<div class="d-flex justify-content-between align-items-center my-3">
+	<h2>Create a recipe!</h2>
+	<a href="categories/create" class="btn btn-primary">Create a new category</a>
+</div>
 
 @include('partials/validation_errors')
 
@@ -27,8 +30,12 @@
                     <label for="ingredients" class="form-label">Ingredients</label>
 					<input type="textarea" class="form-control" id="ingredients" name="ingredients" required>
                     
-                    <label for="category" class="form-label">Category</label>
-					<input type="text" class="form-control" id="category" name="category" required>
+                    <h3>Tag your post!</h3>
+					<select class="form-select" name="categories[]" multiple="multiple">
+						@foreach($category as $category)
+							<option value="{{ $category->id }}">{{ $category->title }}</option>
+						@endforeach
+					</select>
 				</div>
 
 				<button type="submit" class="btn btn-success">Create</button>

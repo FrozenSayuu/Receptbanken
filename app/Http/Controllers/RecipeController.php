@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -29,7 +30,9 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('recipes/create', ['user' => Auth::user()]);
+        $category = Category::all();
+
+        return view('recipes/create', ['user' => Auth::user(), 'category' => $category]);
     }
 
     /**
@@ -38,7 +41,7 @@ class RecipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Recipe $recipe,Request $request)
+    public function store(Request $request)
     {
         $recipe = new Recipe;
 
@@ -50,6 +53,8 @@ class RecipeController extends Controller
         $recipe->user_id = Auth::user()->id;
 
         $recipe->save();
+
+        $recipe->categories()->sync($request->categories);
 
         return redirect('/recipes');
     }

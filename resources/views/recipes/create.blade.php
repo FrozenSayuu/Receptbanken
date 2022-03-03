@@ -4,7 +4,7 @@
 
 <div class="d-flex justify-content-between align-items-center my-3">
 	<h2>Create a recipe!</h2>
-	<a href="categories/create" class="btn btn-primary">Create a new category</a>
+	<a href="/categories/create" class="btn btn-primary">Create a new category</a>
 </div>
 
 @include('partials/validation_errors')

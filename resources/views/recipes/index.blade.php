@@ -12,7 +12,9 @@
             <h3>{{$recipe->title}}</h3>
             <p>{{$recipe->summary}}</p>
             <p class="cooking_time">{{$recipe->cooking_time}}</p>
-            <span>{{$recipe->categories}}</span>
+            @foreach($recipe->categories as $category)
+                <span>{{$category->title}}</span>
+            @endforeach
         </article>
         <a href="/recipes/{{ $recipe->id }}/show" class="btn btn-primary btn-sm">View</a>
         <a href="/recipies/{{$recipe->id}}/edit" class="btn btn-primary btn-sm">Edit</a>

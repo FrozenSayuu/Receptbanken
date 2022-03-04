@@ -6,6 +6,8 @@
     <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
   </div>
 
+@include('partials/status')
+
 @foreach ($recipes as $recipe)
     @if($recipe->user == auth()->user())
         <article>

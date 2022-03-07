@@ -65,7 +65,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('recipes/edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -77,7 +79,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validInput = $request->validate([
+            'title' => 'required',
+        ]);
+
+        $category->update($validInput);
     }
 
     /**

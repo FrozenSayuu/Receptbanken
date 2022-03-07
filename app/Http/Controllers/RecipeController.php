@@ -78,10 +78,16 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipe $recipe)
+    public function edit(Recipe $recipe, Category $category)
     {
+
+        $recipe = Recipe::with('categories')->find($recipe->id);
+
+        $categories = Category::all();
+
         return view('recipes/edit', [
-            'recipe' => $recipe
+            'recipe' => $recipe,
+            'categories' => $categories
         ]);
     }
 

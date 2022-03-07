@@ -27,14 +27,19 @@
                     
                     <label for="ingredients" class="form-label">Ingredients</label>
 					<input type="textarea" class="form-control" id="ingredients" name="ingredients" value="{{ old('ingredients') ?: $recipe->ingredients}}" required>
-                    
-                    {{-- lägg till för att ändra category --}}
+
                     <h3>Tag your post!</h3>
-					<select class="form-select" name="categories[]" multiple="multiple">
-						@foreach($recipe->categories as $category)
-							<option value="{{ old('id') ?: $category->id }}">{{ $category->title }}</option>
-						@endforeach
-					</select>
+					
+                    <select class="form-control" id="categories" name="categories[]" multiple="multiple">
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}"
+                             @foreach($recipe->categories as $resCategory)
+                                   {{ $resCategory->id==$category->id?'Selected':'' }}
+                             @endforeach
+                        >{{ $category->title}}</option>
+                        @endforeach
+                     </select>
+                    
 				</div>
 
 				<button type="submit" class="btn btn-success">Uppdatera</button>

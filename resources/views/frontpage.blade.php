@@ -21,6 +21,7 @@
 
 @else
     <h2>No recipes created!</h2>
+    <p>Login or register to create some!</p>
     
 @endif
 

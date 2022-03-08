@@ -32,7 +32,7 @@ Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipe
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [FrontPageController::class, 'index'])->name('home');
     Route::get('/recipes/create', [RecipeController::class, 'create'])->name('create');
     Route::get('/recipes/edit', [RecipeController::class, 'edit'])->name('edit');
 });

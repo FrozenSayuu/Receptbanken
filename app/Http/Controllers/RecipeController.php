@@ -111,7 +111,7 @@ class RecipeController extends Controller
 
         $recipe->update($validInput);
 
-        // $recipe->categories()->sync($request->categories);
+        $recipe->categories()->sync($request->categories);
 
         return redirect('/recipes')
             ->with('success', 'Receptet har uppdaterats');

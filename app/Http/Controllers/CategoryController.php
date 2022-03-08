@@ -39,6 +39,7 @@ class CategoryController extends Controller
         $category = new Category;
 
         $category->title = request('title');
+        $category->color = request('color');
         $category->user_id = Auth::user()->id;
 
         $category->save();

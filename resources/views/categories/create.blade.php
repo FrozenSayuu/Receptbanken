@@ -13,6 +13,9 @@
 				<div class="mb-3">
 					<label for="title" class="form-label">Title</label>
 					<input type="text" class="form-control" id="title" name="title" required>
+
+					<label for="color" class="form-label">Enter a hex code for color here</label>
+					<input type="text" class="form-control" id="color" name="color">
 				</div>
 
 				<button type="submit" class="btn btn-success">Create</button>

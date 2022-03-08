@@ -1,7 +1,9 @@
 
 @extends('layouts.app')
 @section('content')
-@foreach ($recipes as $recipe)
+
+@if (count($recipes) > 0)
+    @foreach ($recipes as $recipe)
     <article>
         <h2>{{$recipe->title}}</h2>
         <p>{{$recipe->summary}}</p>
@@ -14,5 +16,12 @@
         <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">Till receptet</a>
     </article>
     <br>
-@endforeach
+
+    @endforeach
+
+@else
+    <h2>No recipes created!</h2>
+    
+@endif
+
 @endsection

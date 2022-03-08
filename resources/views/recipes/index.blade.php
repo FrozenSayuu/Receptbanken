@@ -4,6 +4,7 @@
 <div class="d-flex justify-content-between align-items-center my-3">
     @if (count($recipes) > 0)
          <h2>Your created recipes!</h2>
+         <a href="/ingredients/create" class="btn btn-primary">Create a new recipe with ing</a>
          <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
   </div>
 

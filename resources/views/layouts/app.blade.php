@@ -33,7 +33,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @guest
+                            @if(Route::has('login'))
+                            @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Recipes
+                                    </a>
 
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/recipes/create">
+                                        Create recipe
+                                        </a>
+                                    </div>
+                                </li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -58,6 +73,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/recipes">Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -79,23 +95,32 @@
             @yield('content')
         </main>
 
-        <footer>
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <div class="container">
-                    <p>Drottninggatan, Malmö</p>
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                        @endguest
-                    </ul>
-                </div>
-            </nav>
-        </footer>
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" href="/home">Home</a>
+                    </li>
+                    <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link px-2 text-muted" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" href="/recipes">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" href="/recipes/create">Create new recipe</a>
+                    </li>
+                @endguest
+                </ul>
+                <p class="text-center text-muted">The best place to find recipies both english and swedish!</p>
+                <p class="text-center text-muted">© 2022 Receptbanken Drottninggatan, Malmö</p>
+            </footer>
+        </div>
     </div>
 </body>
 </html>

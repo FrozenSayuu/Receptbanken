@@ -17,8 +17,8 @@ class CreateCategoryRecipePivotTable extends Migration
             $table->unsignedBigInteger('recipe_id');
 
             $table->primary(['category_id', 'recipe_id']);
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('recipe_id')->references('id')->on('recipes');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
         });
     }
     /**

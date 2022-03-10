@@ -27,7 +27,7 @@
 					    <input type="text" class="form-control" id="cooking_time" name="cooking_time" value="{{ old('cooking_time') ?: $recipe->cooking_time}}" required>
                     
                         <label for="ingredients" class="form-label">Ingredients</label>
-					    <input type="textarea" class="form-control" id="ingredients" name="ingredients" value="{{ old('ingredients') ?: $recipe->ingredients}}" required>
+					    <textarea cols="5" rows="5" class="form-control" id="ingredients" name="ingredients" value="{{ old('ingredients') ?: $recipe->ingredients}}" required> {{$recipe->ingredients}}</textarea>
 
                         <h3>Tag your post!</h3>
 					

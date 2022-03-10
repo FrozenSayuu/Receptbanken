@@ -125,10 +125,10 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        /*$recipe->delete();
+        $recipe->delete();
 
         return redirect()
             ->route('recipes.index')
-            ->with('success', 'Receptet är borttaget');*/
+            ->with('success', 'Receptet är borttaget');
     }
 }

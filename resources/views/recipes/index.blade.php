@@ -23,11 +23,11 @@
           </article>
           <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">View</a>
           <a href="recipes/{{$recipe->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-          <td class="col">
-            <button type="button" data-url="{{ route('recipes.destroy', $recipe->id) }}" class="btn btn-danger btn-sm float-right" title="Delete">
-                 <i class="fa fa-times">Delete</i>
-            </button> 
-         </td>
+          <form class="d-inline-block" method="POST" action="{{ route('recipes.destroy', ['recipe' => $recipe]) }}">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger confirm btn-sm">Delete recipe</button>
+        </form>
       @endif
   @endforeach
     @else
@@ -35,29 +35,4 @@
     <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
 </div>
 @endif
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $(document).on('click', '.btn-danger', function (e) {
-    e.preventDefault();
-    var url = $(this).data('url');
-    var token = "{{ csrf_token() }}";
-    swal({
-            title: "Are you sure!",
-            type: "error",
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes!",
-            showCancelButton: true,
-        },
-        function() {
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: {_token: token, _method: 'DELETE'},
-                success: function (data) {
-                     //
-                }         
-            });
-    });
-});
-</script>
 @endsection

@@ -1,5 +1,43 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Assistant:wght@200&family=Shadows+Into+Light&display=swap);
 @charset "UTF-8";
+header {
+  background-color: #B4CFB0;
+  font-family: "Shadows Into Light", cursive;
+  margin: auto;
+  padding: 10px;
+}
+
+p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, a, .container nav li a {
+  font-weight: 600;
+}
+
+.container footer {
+  background-color: #789395;
+}
+
+.container footer ul a, .container footer p {
+  color: whitesmoke;
+}
+
+main {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+article {
+  border-radius: 5px;
+  background-color: #E5E3C9;
+  padding: 25px;
+}
+
+article h2, article .h2, article ul {
+  font-weight: 600;
+}
+
+#cooking_time {
+  font-size: 0.5rem;
+}
+
 .card-body {
   background-color: #e5e3c9;
 }
@@ -61,7 +99,7 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 148, 180, 159;
-  --bs-font-sans-serif: "Nunito", sans-serif;
+  --bs-font-sans-serif: "Assistant", sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);

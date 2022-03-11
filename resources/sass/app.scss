@@ -1,8 +1,14 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200&family=Shadows+Into+Light&display=swap');
 
 // Variables
 @import "variables";
+
+//Header css
+@import "header_footer";
+
+//Show css
+@import "show_recipe";
 
 //CSS for login and register
 @import "login_register";

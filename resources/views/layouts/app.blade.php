@@ -17,12 +17,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <header id="header">
+        <h1>ReceptBanken</h1>
+    </header>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -102,26 +105,26 @@
             <footer class="py-3 my-4">
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                     <li class="nav-item">
-                        <a class="nav-link px-2 text-muted" href="/home">Home</a>
+                        <a class="nav-link px-2" href="/home">Home</a>
                     </li>
                     <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link px-2 text-muted" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link px-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
                     @else
                     <li class="nav-item">
-                        <a class="nav-link px-2 text-muted" href="/recipes">Profile</a>
+                        <a class="nav-link px-2" href="/recipes">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-2 text-muted" href="/recipes/create">Create new recipe</a>
+                        <a class="nav-link px-2" href="/recipes/create">Create new recipe</a>
                     </li>
                 @endguest
                 </ul>
-                <p class="text-center text-muted">The best place to find recipies both english and swedish!</p>
-                <p class="text-center text-muted">© 2022 Receptbanken Drottninggatan, Malmö</p>
+                <p class="text-center">The best place to find recipies both english and swedish!</p>
+                <p class="text-center">© 2022 Receptbanken Drottninggatan, Malmö</p>
             </footer>
         </div>
     </div>

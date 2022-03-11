@@ -1,0 +1,22 @@
+main
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+article
+{
+    border-radius: 5px;
+    background-color: #E5E3C9;
+    padding: 25px;
+}
+
+article h2, article ul
+{
+    font-weight: 600;
+}
+
+#cooking_time
+{
+    font-size: 0.5rem;
+}

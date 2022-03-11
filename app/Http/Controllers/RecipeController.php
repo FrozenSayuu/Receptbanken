@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use App\Models\Category;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 use Auth;
 

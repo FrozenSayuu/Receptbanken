@@ -19,25 +19,6 @@ p, h1, .h1, h2, .h2, h3, .h3, h4, .h4, a, .container nav li a {
   color: whitesmoke;
 }
 
-main {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-article {
-  border-radius: 5px;
-  background-color: #E5E3C9;
-  padding: 25px;
-}
-
-article h2, article .h2, article ul {
-  font-weight: 600;
-}
-
-#cooking_time {
-  font-size: 0.5rem;
-}
-
 .card-body {
   background-color: #e5e3c9;
 }

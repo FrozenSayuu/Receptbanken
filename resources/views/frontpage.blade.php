@@ -4,21 +4,29 @@
 
 @if (count($recipes) > 0)
     @foreach ($recipes as $recipe)
-    <article>
-        <h2>{{$recipe->title}}</h2>
-        <p>{{$recipe->summary}}</p>
-        <p class="small">Tillagningstid: {{$recipe->cooking_time}}</p>
-        <div>
-        @foreach($recipe->categories as $category)
-            <span>{{$category->title}}</span>
-        @endforeach
+        <div class="container justify-content-center border-bottom pb-5 pt-4 mb-3">
+            <article id="recipe-frame" class="form-control p-5">
+                <div id="recipe-heading">
+                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="text-decoration-none">
+                        <h2>{{$recipe->title}}</h2>
+                    </a>
+                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">Till receptet</a>
+                </div>
+                <p>{{$recipe->summary}}</p>
+                <div class="nav">
+                    <div>
+                        @foreach($recipe->categories as $category)
+                        <a class="btn btn-sm me-3" style="background-color:{{$category->color}};">
+                            <span style="color:whitesmoke;">{{$category->title}}</span>
+                        </a>
+                        @endforeach
+                    </div>
+                    <p class="small pt-1">Tillagningstid: {{$recipe->cooking_time}}</p>
+                </div>
+            </article>
         </div>
-        <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">Till receptet</a>
-    </article>
-    <br>
-
     @endforeach
-
+    
 @else
     <h2>No recipes created!</h2>
     <p>Login or register to create some!</p>

@@ -1,38 +1,52 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="d-flex justify-content-between align-items-center my-3">
+<div class="container justify-content-center border-bottom pb-5 pt-4 mb-3">
     @if (count($recipes) > 0)
-         <h2>Your created recipes!</h2>
-         <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
+        <div id="recipe-heading">
+            <h2>Dina skapade recept!</h2>
+            <a href="recipes/create" class="btn btn-primary">Skapa ett nytt recept</a>
+        </div>
   </div>
 
   @include('partials/status')
   
   @foreach ($recipes as $recipe)
       @if($recipe->user == auth()->user())
-          <article>
-              <h3>{{$recipe->title}}</h3>
-              <p>{{$recipe->summary}}</p>
-              <p class="cooking_time">{{$recipe->cooking_time}}</p>
-              @foreach($recipe->categories as $category)
-                  <a class="btn btn-sm" style="background-color:{{$category->color}};">
-                    <span style="color:whitesmoke;">{{$category->title}}</span>
-                </a>
-              @endforeach
-          </article>
-          <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">View</a>
-          <a href="recipes/{{$recipe->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-          <form class="d-inline-block" method="POST" action="{{ route('recipes.destroy', ['recipe' => $recipe]) }}">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger confirm btn-sm">Delete recipe</button>
-        </form>
+        <div class="container justify-content-center border-bottom pb-5 pt-4 mb-3">
+            <article id="recipe-frame" class="form-control p-5">
+                <div id="recipe-heading">
+                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="text-decoration-none">
+                        <h3>{{$recipe->title}}</h3>
+                    </a>
+                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">Till receptet</a>
+                </div>
+                <p>{{$recipe->summary}}</p>
+                <div class="nav pb-5">
+                    <div>
+                        @foreach($recipe->categories as $category)
+                            <a class="btn btn-sm me-3" style="background-color:{{$category->color}};">
+                                <span style="color:whitesmoke;">{{$category->title}}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                    <p class="small pt-1">Tillagningstid: {{$recipe->cooking_time}}</p>
+                </div>
+                <a href="recipes/{{$recipe->id}}/edit" class="btn btn-primary btn-sm me-3 mb-2">Redigera</a>
+                <form class="d-inline-block" method="POST" action="{{ route('recipes.destroy', ['recipe' => $recipe]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger confirm btn-sm mb-2">Ta bort</button>
+                </form>
+            </article>
+        </div>
       @endif
   @endforeach
     @else
-    <h2>You have no created recipes!</h2>
-    <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
+    <div id="recipe-heading">
+        <h2>Du har inte skapat några recept!</h2>
+        <a href="recipes/create" class="btn btn-primary">Skapa ett nytt recept</a>
+    </div>
 </div>
 @endif
 @endsection

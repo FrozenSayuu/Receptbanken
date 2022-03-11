@@ -48,6 +48,5 @@
         <a href="recipes/create" id="btn-text" class="btn btn-primary">Skapa ett nytt recept</a>
     </div>
 </div>
-    @endif
-
+@endif
 @endsection

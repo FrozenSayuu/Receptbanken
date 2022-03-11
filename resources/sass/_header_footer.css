@@ -1,0 +1,22 @@
+header
+{
+    background-color:#B4CFB0;
+    font-family: 'Shadows Into Light', cursive;
+    margin: auto;
+    padding: 10px;
+}
+
+p,h1, h2, h3, h4, a, .container nav li a
+{
+    font-weight: 600;
+}
+
+.container footer
+{
+    background-color: #789395;
+}
+
+.container footer ul a, .container footer p
+{
+    color:whitesmoke;
+}

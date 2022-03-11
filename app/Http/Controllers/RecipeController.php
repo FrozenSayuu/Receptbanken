@@ -127,7 +127,8 @@ class RecipeController extends Controller
     {
         $recipe->delete();
 
-        return redirect('/recipes')
+        return redirect()
+            ->route('recipes.index')
             ->with('success', 'Receptet är borttaget');
     }
 }

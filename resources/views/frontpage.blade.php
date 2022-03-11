@@ -10,7 +10,7 @@
                     <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="text-decoration-none">
                         <h2>{{$recipe->title}}</h2>
                     </a>
-                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">Till receptet</a>
+                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" id="btn-text" class="btn btn-primary btn-sm">Till receptet</a>
                 </div>
                 <p>{{$recipe->summary}}</p>
                 <div class="nav">

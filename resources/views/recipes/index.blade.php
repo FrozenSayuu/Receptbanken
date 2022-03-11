@@ -5,7 +5,7 @@
     @if (count($recipes) > 0)
         <div id="recipe-heading">
             <h2>Dina skapade recept!</h2>
-            <a href="recipes/create" class="btn btn-primary">Skapa ett nytt recept</a>
+            <a href="recipes/create" id="btn-text" class="btn btn-primary">Skapa ett nytt recept</a>
         </div>
   </div>
 
@@ -19,7 +19,7 @@
                     <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="text-decoration-none">
                         <h3>{{$recipe->title}}</h3>
                     </a>
-                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">Till receptet</a>
+                    <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" id="btn-text" class="btn btn-primary btn-sm">Till receptet</a>
                 </div>
                 <p>{{$recipe->summary}}</p>
                 <div class="nav pb-5">
@@ -32,11 +32,11 @@
                     </div>
                     <p class="small pt-1">Tillagningstid: {{$recipe->cooking_time}}</p>
                 </div>
-                <a href="recipes/{{$recipe->id}}/edit" class="btn btn-primary btn-sm me-3 mb-2">Redigera</a>
+                <a href="recipes/{{$recipe->id}}/edit" id="btn-text" class="btn btn-primary btn-sm me-3 mb-2">Redigera</a>
                 <form class="d-inline-block" method="POST" action="{{ route('recipes.destroy', ['recipe' => $recipe]) }}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger confirm btn-sm mb-2">Ta bort</button>
+                    <button type="submit" id="btn-text" class="btn btn-danger confirm btn-sm mb-2">Ta bort</button>
                 </form>
             </article>
         </div>
@@ -45,7 +45,7 @@
     @else
     <div id="recipe-heading">
         <h2>Du har inte skapat några recept!</h2>
-        <a href="recipes/create" class="btn btn-primary">Skapa ett nytt recept</a>
+        <a href="recipes/create" id="btn-text" class="btn btn-primary">Skapa ett nytt recept</a>
     </div>
 </div>
     @endif

@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
+#btn-text {
+  color: whitesmoke;
+}
+
+#btn-background {
+  background-color: #698183;
+}
+
 .card-body {
   background-color: #e5e3c9;
 }
@@ -24,6 +32,10 @@
 #recipe-frame {
   background-color: #e5e3c9;
   border: 1px solid #789395;
+}
+
+.btn-primary {
+  color: #e5e3c9;
 }
 
 /*!

@@ -2,35 +2,37 @@
 
 @section('content')
 
-<div class="d-flex justify-content-between align-items-center my-3">
-	<h2>Create a recipe!</h2>
-	<a href="/categories/create" class="btn btn-primary">Create a new category</a>
+<div class="container justify-content-center border-bottom pb-5 pt-4 mb-3">
+	<div id="recipe-heading">
+		<h2>Skapa ett recept!</h2>
+		<a href="/categories/create" id="btn-text" class="btn btn-primary">Skapa en ny kategori</a>
+	</div>
 </div>
 
 @include('partials/validation_errors')
 
-	<div class="card">
-		<div class="card-body">
+	<div class="container justify-content-center border-bottom pb-5 pt-4 mb-3">
+		<div class="card-body p-5">
 			<form method="POST" action="{{ route('recipes.index') }}">
 				@csrf
 
 				<div class="mb-3">
-					<label for="title" class="form-label">Title</label>
+					<label for="title" class="form-label pt-3">Titel</label>
 					<input type="text" class="form-control" id="title" name="title" required>
                     
-                    <label for="summary" class="form-label">Summary</label>
+                    <label for="summary" class="form-label pt-3">Sammanfattning</label>
 					<input type="textarea" class="form-control" id="summary" name="summary" required>
 
-                    <label for="description" class="form-label">Description</label>
-					<input type="textarea" class="form-control" id="description" name="description" required>
+                    <label for="description" class="form-label pt-3">Beskrivning</label>
+					<textarea rows="5" class="form-control" id="description" name="description" required></textarea>
 
-                    <label for="cooking_time" class="form-label">Cooking Time</label>
+                    <label for="cooking_time" class="form-label pt-3">Tillagningstid</label>
 					<input type="text" class="form-control" id="cooking_time" name="cooking_time" required>
                     
-                    <label for="ingredients" class="form-label">Ingredients</label>
-					<input type="textarea" class="form-control" id="ingredients" name="ingredients" required>
+                    <label for="ingredients" class="form-label pt-3">Ingredienser</label>
+					<textarea rows="5" type="textarea" class="form-control" id="ingredients" name="ingredients" required></textarea>
                     
-                    <h3>Tag your post!</h3>
+                    <h3 class="pt-3">Kategorisera ditt recept!</h3>
 					<select class="form-select" name="categories[]" multiple="multiple">
 						@foreach($category as $category)
 							<option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -38,13 +40,13 @@
 					</select>
 				</div>
 
-				<button type="submit" class="btn btn-success">Create</button>
+				<button type="submit" id="btn-text" class="btn btn-primary">Skapa</button>
 			</form>
 		</div>
 	</div>
 
-	<div class="mt-4">
-		<a href="{{ route('recipes.index') }}" class="btn btn-secondary">&laquo; Back</a>
+	<div class="container justify-content-center pb-5 pt-4 mb-3">
+		<a href="{{ route('recipes.index') }}" id="btn-text" class="btn btn-primary">&laquo; Tillbaka</a>
 	</div>
 
 @endsection

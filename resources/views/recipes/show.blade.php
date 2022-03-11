@@ -5,8 +5,8 @@
     <p id="cooking_time">Tillagningstid: {{$recipe->cooking_time}}</p>
     <p>Ingredienser:</p>
     <p>{{$recipe->ingredients}}</p>
-    <br>
-    <p><strong>Gör såhär:</strong></p>
+    <div id="br"></div>
+    <p>Gör såhär:</p>
     <p>{{$recipe->description}}</p>
     @foreach($recipe->categories as $category)
         <span>{{$category->title}}</span>

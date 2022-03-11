@@ -45,12 +45,12 @@
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/recipes" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Recipes
+                                        Recept
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end bg-light" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="/recipes/create">
-                                        Create recipe
+                                        Skapa nytt recept
                                         </a>
                                     </div>
                                 </li>
@@ -105,7 +105,7 @@
             <footer class="py-3 my-4">
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                     <li class="nav-item">
-                        <a class="nav-link px-2" href="/home">Home</a>
+                        <a class="nav-link px-2" href="/">Hem</a>
                     </li>
                     <!-- Authentication Links -->
                 @guest
@@ -116,14 +116,14 @@
                     @endif
                     @else
                     <li class="nav-item">
-                        <a class="nav-link px-2" href="/recipes">Profile</a>
+                        <a class="nav-link px-2" href="/recipes">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-2" href="/recipes/create">Create new recipe</a>
+                        <a class="nav-link px-2" href="/recipes/create">Skapa nytt recept</a>
                     </li>
                 @endguest
                 </ul>
-                <p class="text-center">The best place to find recipies both english and swedish!</p>
+                <p class="text-center">Bästa stället för recept på svenska!</p>
                 <p class="text-center">© 2022 Receptbanken Drottninggatan, Malmö</p>
             </footer>
         </div>

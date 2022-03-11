@@ -24,16 +24,17 @@
           <a href="{{ route('recipes.show', ['recipe' => $recipe]) }}" class="btn btn-primary btn-sm">View</a>
           <a href="recipes/{{$recipe->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
           <form class="d-inline-block" method="POST" action="{{ route('recipes.destroy', ['recipe' => $recipe]) }}">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-danger confirm btn-sm">Delete recipe</button>
-          </form>
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger confirm btn-sm">Delete recipe</button>
+        </form>
       @endif
   @endforeach
     @else
     <h2>You have no created recipes!</h2>
     <a href="recipes/create" class="btn btn-primary">Create a new recipe</a>
 </div>
-    @endif
-
+@endif
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="popup-delete.js"></script>
 @endsection

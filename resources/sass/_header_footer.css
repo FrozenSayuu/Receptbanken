@@ -1,9 +1,24 @@
-header
+#header
 {
+    display: grid;
+    grid-template-columns: 10% 90%;
     background-color:#B4CFB0;
     font-family: 'Shadows Into Light', cursive;
     margin: auto;
     padding: 10px;
+}
+
+#header h1
+{
+    display: flex;
+    align-items: center;
+}
+
+#header img
+{
+    margin-left: 3rem;
+    width: 70px;
+    height: 70px;
 }
 
 p,h1, h2, h3, h4, a, .container nav li a

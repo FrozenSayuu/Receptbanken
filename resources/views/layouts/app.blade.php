@@ -20,9 +20,11 @@
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href="receptbankenlogga.png" type="image" sizes="20x20">
 </head>
 <body>
     <header id="header">
+        <img src="receptbankenlogga.png" alt="Logotypen för ReceptBanken, en kockhatt med dollar tecken och initialerna R B">
         <h1>ReceptBanken</h1>
     </header>
 

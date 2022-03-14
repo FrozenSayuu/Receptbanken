@@ -28,7 +28,7 @@
     @endforeach
     
 @else
-    <h2>No recipes created!</h2>
-    <p>Login or register to create some!</p>
+    <h2>Inga recept skapade!</h2>
+    <p>Logg in eller registrera för att skapa!</p>
 @endif
 @endsection

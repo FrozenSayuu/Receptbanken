@@ -29,7 +29,7 @@ Route::resource('/recipes', RecipeController::class);
 Route::resource('/categories', CategoryController::class);
 
 Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
-
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [FrontPageController::class, 'index'])->name('home');

@@ -25,7 +25,7 @@
                 <div class="nav pb-5">
                     <div>
                         @foreach($recipe->categories as $category)
-                            <a class="btn btn-sm me-3" style="background-color:{{$category->color}};">
+                            <a href="{{ route('categories.show', ['category' => $category]) }}" class="btn btn-sm me-3" style="background-color:{{$category->color}};">
                                 <span style="color:whitesmoke;">{{$category->title}}</span>
                             </a>
                         @endforeach

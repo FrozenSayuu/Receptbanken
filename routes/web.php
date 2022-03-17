@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\FrontpageController;
 
 /*
@@ -27,6 +28,7 @@ Route::resource('/', FrontpageController::class);
 Route::resource('/recipes', RecipeController::class);
 // Route::resource('/recipes/', RecipeController::class);
 Route::resource('/categories', CategoryController::class);
+Route::resource('/ingredients', IngredientController::class);
 
 Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 

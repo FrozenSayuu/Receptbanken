@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+
+
 <div class="container justify-content-center border-bottom pb-5 pt-4 mb-3">
     @if (count($recipes) > 0)
         <div id="recipe-heading">
@@ -33,11 +35,30 @@
                     <p class="small pt-1">Tillagningstid: {{$recipe->cooking_time}}</p>
                 </div>
                 <a href="recipes/{{$recipe->id}}/edit" id="btn-text" class="btn btn-primary btn-sm me-3 mb-2">Redigera</a>
-                <form class="d-inline-block" method="POST" action="{{ route('recipes.destroy', ['recipe' => $recipe]) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" id="btn-text" class="btn btn-danger confirm btn-sm mb-2">Ta bort</button>
-                </form>
+                <a id="btn-text" class="btn btn-danger btn-sm mb-2 deleteBtn" data-id={{$recipe->id}} data-toggle="modal" data-target="#deleteModal">Ta bort</a>
+                <!-- Modal pops-up when delete recipe is pressed -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form class="d-inline-block" method="POST" action="{{ route('recipes.destroy', 'id') }}">
+                                @csrf
+                                @method('DELETE')
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Ta bort recept</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input hidden name="id" id="id" value="">
+                                        <h5>Vill du verkligen ta bort detta recept?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nej, ångra</button>
+                                        <button type="submit" class="btn btn-danger">Ja, ta bort recept</button>
+                                    </div>
+                            </form>        
+                        </div>
+                    </div>
+                </div>
             </article>
         </div>
       @endif
@@ -49,6 +70,9 @@
     </div>
 </div>
 @endif
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="popup-delete.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+
 @endsection

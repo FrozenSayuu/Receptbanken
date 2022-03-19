@@ -1,17 +1,10 @@
-$(document).ready(function()
-{
-    $("button").click(function()
-        {
-            $("text").load("text.txt", function(responseText, statusText, xhr)
-            {
-                if(statusText == "success")
-                {
-                    console.log("We have success");
-                }
-                if(statusText == "error")
-                {
-                    console.log("Error: " + xhr.status + ": " + xhr.statusText);
-                }
-            })
-        });
+$(document).ready(function () {
+    $(".deleteBtn").click(function (e) {
+        e.preventDefault();
+
+        var id = $(this).attr("data-id");
+        $("#id").val(id);
+
+        $("#deleteModal").modal("show");
+    });
 });

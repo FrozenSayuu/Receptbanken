@@ -123,8 +123,11 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipe $recipe)
+    public function destroy(Request $request)
     {
+        $id = $request->id;
+        $recipe = Recipe::find($id);
+
         $recipe->delete();
 
         return redirect()

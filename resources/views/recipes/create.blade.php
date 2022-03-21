@@ -6,6 +6,7 @@
 	<div id="recipe-heading">
 		<h2>Skapa ett recept!</h2>
 		<a href="/categories/create" id="btn-text" class="btn btn-primary">Skapa en ny kategori</a>
+		<a href="/ingredients/create" id="btn-text" class="btn btn-primary">Skapa en ny ingrediens</a>
 	</div>
 </div>
 
@@ -29,9 +30,13 @@
                     <label for="cooking_time" class="form-label pt-3">Tillagningstid</label>
 					<input type="text" class="form-control" id="cooking_time" name="cooking_time" required>
                     
-                    <label for="ingredients" class="form-label pt-3">Ingredienser</label>
-					<textarea rows="5" type="textarea" class="form-control" id="ingredients" name="ingredients" required></textarea>
-                    
+					<h3 class="pt-3">Lägg till ingredienser!</h3>
+					<select class="form-select" name="ingredients[]" multiple="multiple">
+						@foreach($ingredient as $ingredient)
+							<option value="{{ $ingredient->id }}">{{ $ingredient->title }}</option>
+						@endforeach
+					</select>
+
                     <h3 class="pt-3">Kategorisera ditt recept!</h3>
 					<select class="form-select" name="categories[]" multiple="multiple">
 						@foreach($category as $category)

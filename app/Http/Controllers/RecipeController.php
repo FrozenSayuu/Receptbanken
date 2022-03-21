@@ -32,8 +32,9 @@ class RecipeController extends Controller
     public function create()
     {
         $category = Category::all();
+        $ingredient = Ingredient::all();
 
-        return view('recipes/create', ['user' => Auth::user(), 'category' => $category]);
+        return view('recipes/create', ['user' => Auth::user(), 'category' => $category, 'ingredient' => $ingredient]);
     }
 
     /**
@@ -50,12 +51,12 @@ class RecipeController extends Controller
         $recipe->summary = request('summary');
         $recipe->description = request('description');
         $recipe->cooking_time = request('cooking_time');
-        $recipe->ingredients = request('ingredients');
         $recipe->user_id = Auth::user()->id;
 
         $recipe->save();
 
         $recipe->categories()->sync($request->categories);
+        $recipe->ingredients()->sync($request->ingredients);
 
         return redirect('/recipes');
     }

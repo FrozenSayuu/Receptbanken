@@ -4,7 +4,9 @@
     <h2>Recept på {{$recipe->title}}</h2>
     <p id="cooking_time">Tillagningstid: {{$recipe->cooking_time}}</p>
     <p>Ingredienser:</p>
-    <p>{{$recipe->ingredients}}</p>
+    @foreach($recipe->ingredients as $ingredient)
+        <p>{{$ingredient->title}}</p>
+    @endforeach
     <div id="br"></div>
     <p>Gör såhär:</p>
     <p>{{$recipe->description}}</p>

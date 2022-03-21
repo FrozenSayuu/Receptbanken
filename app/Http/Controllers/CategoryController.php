@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('/recipes');
+        return redirect('/recipes/create');
     }
 
     /**

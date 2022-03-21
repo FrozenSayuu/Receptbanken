@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
+use Auth;
 
 class IngredientController extends Controller
 {
@@ -14,11 +15,7 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        $ingredients = Ingredient::all();
-
-        return view('ingredients/index', [
-            'ingredients' => $ingredients
-        ]);
+        //
     }
 
     /**
@@ -42,10 +39,10 @@ class IngredientController extends Controller
         $ingredient = new Ingredient;
 
         $ingredient->title = request('title');
-
+        $ingredient->user_id = Auth::user()->id;
         $ingredient->save();
 
-        return view('recipes.edit');
+        return redirect('/recipes/create');
     }
 
     /**

@@ -17,7 +17,7 @@ class CreateRecipesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('summary');
-            $table->string('description');
+            $table->string('description', 1000);
             $table->string('cooking_time');
             $table->string('ingredients');
             $table->foreignId('user_id')->references('id')->on('users');

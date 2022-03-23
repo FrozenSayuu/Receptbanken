@@ -29,6 +29,6 @@
     
 @else
     <h2>Inga recept skapade!</h2>
-    <p>Logg in eller registrera för att skapa!</p>
+    <p>Logga in eller registrera för att skapa!</p>
 @endif
 @endsection

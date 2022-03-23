@@ -57,7 +57,6 @@ class RecipeController extends Controller
         $recipe->save();
 
         $recipe->categories()->sync($request->categories);
-        // $recipe->ingredients()->sync($request->ingredients);
 
         return redirect('/recipes');
     }

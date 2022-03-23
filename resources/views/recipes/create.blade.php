@@ -6,7 +6,6 @@
 	<div id="recipe-heading">
 		<h2>Skapa ett recept!</h2>
 		<a href="/categories/create" id="btn-text" class="btn btn-primary">Skapa en ny kategori</a>
-		{{-- <a href="/ingredients/create" id="btn-text" class="btn btn-primary">Skapa en ny ingrediens</a> --}}
 	</div>
 </div>
 

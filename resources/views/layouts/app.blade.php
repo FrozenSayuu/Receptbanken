@@ -24,7 +24,7 @@
 </head>
 <body>
     <header id="header">
-        <img src="/receptbankenlogga.png" alt="Logotypen för ReceptBanken, en kockhatt med dollar tecken och initialerna R B">
+        <a href="{{ url('/') }}"><img src="/receptbankenlogga.png" alt="Logotypen för ReceptBanken, en kockhatt med dollar tecken och initialerna R B"></a>
         <h1>ReceptBanken</h1>
     </header>
 

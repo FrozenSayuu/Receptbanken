@@ -51,12 +51,13 @@ class RecipeController extends Controller
         $recipe->summary = request('summary');
         $recipe->description = request('description');
         $recipe->cooking_time = request('cooking_time');
+        $recipe->ingredients = request('ingredients');
         $recipe->user_id = Auth::user()->id;
 
         $recipe->save();
 
         $recipe->categories()->sync($request->categories);
-        $recipe->ingredients()->sync($request->ingredients);
+        // $recipe->ingredients()->sync($request->ingredients);
 
         return redirect('/recipes');
     }
